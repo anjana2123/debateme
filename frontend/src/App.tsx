@@ -40,7 +40,7 @@ function App() {
         {/* Grain Texture Overlay */}
         <div className="fixed inset-0 opacity-[0.015] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iNCIgLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2UpIiAvPjwvc3ZnPg==')] pointer-events-none"></div>
 
-        {/* Header - ONLY 2 MILD FIXES ADDED */}
+        {/* Header */}
         <header className="backdrop-blur-xl bg-gray-900/95 shadow-2xl border-b border-gray-700/50 sticky top-0 z-50 pt-[env(safe-area-inset-top)]">
           <div className="max-w-7xl mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
@@ -58,8 +58,7 @@ function App() {
                   <p className="text-xs text-gray-300 tracking-wide font-medium">The Intellectual Colosseum</p>
                 </div>
               </div>
-              
-              {/* Right side - ONLY ADDED pr-6 to prevent cut-off */}
+             
               <div className="flex items-center gap-3 pr-6">
                 <button
                   onClick={() => setShowLeaderboard(true)}
@@ -68,7 +67,7 @@ function App() {
                   <Trophy className="w-4 h-4" />
                   Rankings
                 </button>
-                
+               
                 <button
                   onClick={() => setShowStats(true)}
                   className="px-4 py-2 bg-champion-500/10 hover:bg-champion-500/20 text-champion-400 font-semibold rounded-lg transition border border-champion-500/30 backdrop-blur-sm flex items-center gap-2"
@@ -76,7 +75,6 @@ function App() {
                   <Award className="w-4 h-4" />
                   Profile
                 </button>
-
                 {debateId && (
                   <button
                     onClick={() => {
@@ -92,23 +90,21 @@ function App() {
             </div>
           </div>
         </header>
-
         {/* Main Content */}
         <main className="relative max-w-7xl mx-auto px-6 py-12">
           {!debateId ? (
             <StartDebate onDebateStart={handleDebateStart} />
           ) : (
-            <DebateArena 
+            <DebateArena
               debateId={debateId}
               initialData={debateData}
               onNewDebate={() => {
                 setDebateId(null);
                 setDebateData(null);
-              }} 
+              }}
             />
           )}
         </main>
-
         {/* Footer */}
         <footer className="py-8 text-center border-t border-gray-700/50 backdrop-blur-xl bg-gray-900/80">
           <p className="text-sm text-gray-100 font-medium">
@@ -116,10 +112,9 @@ function App() {
           </p>
         </footer>
       </div>
-
       {/* ALL MODALS HERE - ONLY ONCE! */}
-      <AuthModal 
-        isOpen={showAuthModal} 
+      <AuthModal
+        isOpen={showAuthModal}
         onClose={() => setShowAuthModal(false)}
         onContinueAsGuest={handleContinueAsGuest}
       />
@@ -128,5 +123,4 @@ function App() {
     </QueryClientProvider>
   );
 }
-
 export default App;

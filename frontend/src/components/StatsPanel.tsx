@@ -40,7 +40,7 @@ export default function StatsPanel({ isOpen, onClose }: Props) {
       
       const userId = localStorage.getItem('user_id') || 'default_user';
       
-      fetch(`http://localhost:8000/api/v1/stats/${userId}`)
+      fetch(`https://debateme-production-c0b0.up.railway.app/api/v1/stats/${userId}`)
         .then(res => {
           if (!res.ok) throw new Error('Failed to load stats');
           return res.json();

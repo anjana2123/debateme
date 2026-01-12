@@ -8,6 +8,7 @@ class BaseAgent(ABC):
         self.llm = ChatGroq(
             groq_api_key=settings.GROQ_API_KEY,
             model_name="llama-3.3-70b-versatile",
+            model_kwargs={"reasoning_format": "parsed"},
             temperature=0.7,
             max_tokens=2048
         )

@@ -9,3 +9,10 @@ python-multipart==0.0.12
 groq==0.11.0
 langchain-groq
 pydantic_settings
+python-dotenv
+langchain
+langchain-community
+chromadb
+websockets
+httpx
+tavily-python
